@@ -4,7 +4,9 @@ import (
 	"fmt"
 )
 
-func Start() {
+type Maps struct{}
+
+func (m Maps) Start() {
 	fmt.Println("--- mapsTest ---")
 	mapsTest()
 }

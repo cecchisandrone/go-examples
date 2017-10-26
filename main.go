@@ -1,8 +1,10 @@
 package main
 
 import (
+	"fmt"
 	"os"
 
+	"github.com/cecchisandrone/go-examples/functions"
 	"github.com/cecchisandrone/go-examples/maps"
 	"github.com/cecchisandrone/go-examples/slices"
 	"github.com/cecchisandrone/go-examples/structs"
@@ -10,7 +12,18 @@ import (
 	"github.com/urfave/cli"
 )
 
+type example interface {
+	Start()
+}
+
 func main() {
+
+	examples := map[string]example{
+		"functions": functions.Functions{},
+		"slices":    slices.Slices{},
+		"maps":      maps.Maps{},
+		"structs":   structs.Structs{},
+	}
 
 	var topic string
 	app := cli.NewApp()
@@ -30,12 +43,13 @@ func main() {
 			cli.ShowAppHelpAndExit(c, 0)
 		}
 
-		if topic == "structs" {
-			structs.Start()
-		} else if topic == "slices" {
-			slices.Start()
-		} else if topic == "maps" {
-			maps.Start()
+		example := examples[topic]
+
+		if example != nil {
+			example.Start()
+		} else {
+			fmt.Println("Bad example name")
+			os.Exit(1)
 		}
 
 		return nil

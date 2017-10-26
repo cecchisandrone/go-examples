@@ -6,7 +6,9 @@ import (
 	"sort"
 )
 
-func Start() {
+type Slices struct{}
+
+func (s Slices) Start() {
 	fmt.Println("--- copyTest ---")
 	copyTest()
 	fmt.Println("--- sliceTest ---")

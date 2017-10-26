@@ -8,11 +8,13 @@ type User struct {
 	LastName  string
 }
 
+type Structs struct{}
+
 func (u *User) change(name string) {
 	u.FirstName = name
 }
 
-func Start() {
+func (s Structs) Start() {
 	fmt.Println("--- pointerTest ---")
 	pointerTest()
 }

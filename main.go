@@ -4,8 +4,10 @@ import (
 	"fmt"
 	"os"
 
+	"github.com/cecchisandrone/go-examples/concurrency"
 	"github.com/cecchisandrone/go-examples/functions"
 	"github.com/cecchisandrone/go-examples/maps"
+	"github.com/cecchisandrone/go-examples/misc"
 	"github.com/cecchisandrone/go-examples/slices"
 	"github.com/cecchisandrone/go-examples/structs"
 
@@ -19,10 +21,12 @@ type example interface {
 func main() {
 
 	examples := map[string]example{
-		"functions": functions.Functions{},
-		"slices":    slices.Slices{},
-		"maps":      maps.Maps{},
-		"structs":   structs.Structs{},
+		"functions":   functions.Functions{},
+		"slices":      slices.Slices{},
+		"maps":        maps.Maps{},
+		"structs":     structs.Structs{},
+		"misc":        misc.Misc{},
+		"concurrency": concurrency.Concurrency{},
 	}
 
 	var topic string
